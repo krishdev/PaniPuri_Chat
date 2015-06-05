@@ -22,7 +22,7 @@ import krishna.com.panipuri_chat.interfaces.ISocketOperator;
 
 public class SocketOperator implements ISocketOperator
 {
-    private static final String AUTHENTICATION_SERVER_ADDRESS = "http://192.168.137.1/panipuri_chat/"; //TODO change to your WebAPI Address
+    private static final String AUTHENTICATION_SERVER_ADDRESS = "http://52.24.170.88/"; //TODO change to your WebAPI Address
 
     private int listeningPort = 0;
 

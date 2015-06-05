@@ -239,37 +239,33 @@ public class IMService extends Service implements IAppManager, IUpdateData {
             i.putExtra(FriendInfo.FRIEND_LIST, rawFriendList);
             sendBroadcast(i);
 
-            timer.schedule(new TimerTask()
-            {
-                public void run()
-                {
-                    try {
-                        //rawFriendList = IMService.this.getFriendList();
-                        // sending friend list
-                        Intent i = new Intent(FRIEND_LIST_UPDATED);
-                        Intent i2 = new Intent(MESSAGE_LIST_UPDATED);
-                        String tmp = IMService.this.getFriendList();
-                        String tmp2 = IMService.this.getMessageList();
-                        if (tmp != null) {
-                            i.putExtra(FriendInfo.FRIEND_LIST, tmp);
-                            sendBroadcast(i);
-                            Log.i("friend list broadcast sent ", "");
+                    timer.schedule(new TimerTask() {
+                        public void run() {
+                            try {
+                                //rawFriendList = IMService.this.getFriendList();
+                                // sending friend list
+                                Intent i = new Intent(FRIEND_LIST_UPDATED);
+                                Intent i2 = new Intent(MESSAGE_LIST_UPDATED);
+                                String tmp = IMService.this.getFriendList();
+                                String tmp2 = IMService.this.getMessageList();
+                                if (tmp != null) {
+                                    i.putExtra(FriendInfo.FRIEND_LIST, tmp);
+                                    sendBroadcast(i);
+                                    Log.i("friend list broadcast sent ", "");
 
-                            if (tmp2 != null) {
-                                i2.putExtra(MessageInfo.MESSAGE_LIST, tmp2);
-                                sendBroadcast(i2);
-                                Log.i("friend list broadcast sent ", "");
+                                    if (tmp2 != null) {
+                                        i2.putExtra(MessageInfo.MESSAGE_LIST, tmp2);
+                                        sendBroadcast(i2);
+                                        Log.i("friend list broadcast sent ", "");
+                                    }
+                                } else {
+                                    Log.i("friend list returned null", "");
+                                }
+                            } catch (Exception e) {
+                                e.printStackTrace();
                             }
                         }
-                        else {
-                            Log.i("friend list returned null", "");
-                        }
-                    }
-                    catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }, UPDATE_TIME_PERIOD, UPDATE_TIME_PERIOD);
+                    }, UPDATE_TIME_PERIOD, UPDATE_TIME_PERIOD);
         }
 
         return result;

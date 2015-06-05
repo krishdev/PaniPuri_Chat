@@ -5,13 +5,13 @@
     android:background="@mipmap/whitefabric">
 
 
-    <ImageView android:id="@+id/user_img"
+   <!-- <ImageView android:id="@+id/user_img"
         android:layout_width="35dip"
         android:layout_height="45dip"
-        android:src="@mipmap/user"/>
+        android:src="@mipmap/user"/>-->
     <ImageView android:id="@+id/icon"
-        android:layout_width="10dip"
-        android:layout_height="45dip" />
+        android:layout_width="48dip"
+        android:layout_height="48dip" />
 
     <TextView android:id="@+id/text"
         android:layout_gravity="center_vertical"
