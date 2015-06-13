@@ -14,11 +14,11 @@ public class LocalStorageHandler extends SQLiteOpenHelper {
 
     private static final String TAG = LocalStorageHandler.class.getSimpleName();
 
-    private static final String DATABASE_NAME = "AndroidIM.db";
+    private static final String DATABASE_NAME = "panipuri_chat.db";
     private static final int DATABASE_VERSION = 1;
 
     private static final String _ID = "_id";
-    private static final String TABLE_NAME_MESSAGES = "androidim_messages";
+    private static final String TABLE_NAME_MESSAGES = "panipuri_messages";
     public static final String MESSAGE_RECEIVER = "receiver";
     public static final String MESSAGE_SENDER = "sender";
     private static final String MESSAGE_MESSAGE = "message";

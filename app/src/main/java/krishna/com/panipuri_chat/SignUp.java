@@ -19,6 +19,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 import krishna.com.panipuri_chat.interfaces.IAppManager;
 import krishna.com.panipuri_chat.services.IMService;
@@ -43,6 +45,10 @@ public class SignUp extends Activity {
     private EditText passwordText;
     private EditText eMailText;
     private EditText passwordAgainText;
+    private EditText age;
+    private EditText phno;
+    private RadioGroup radioSexGroup;
+    private RadioButton radioSexButton;
     private IAppManager imService;
     private Handler handler = new Handler();
 
@@ -85,6 +91,9 @@ public class SignUp extends Activity {
         passwordText = (EditText) findViewById(R.id.password);
         passwordAgainText = (EditText) findViewById(R.id.passwordAgain);
         eMailText = (EditText) findViewById(R.id.email);
+        age = (EditText) findViewById(R.id.age);
+        phno = (EditText) findViewById(R.id.phno);
+        radioSexGroup = (RadioGroup) findViewById(R.id.radioSex);
 
         signUpButton.setOnClickListener(new OnClickListener(){
             public void onClick(View arg0)
@@ -100,23 +109,24 @@ public class SignUp extends Activity {
                     if (passwordText.getText().toString().equals(passwordAgainText.getText().toString())){
 
                         if (usernameText.length() >= 5 && passwordText.length() >= 5) {
-
+                            int selectedId = radioSexGroup.getCheckedRadioButtonId();
+                            radioSexButton = (RadioButton) findViewById(selectedId);
                             Thread thread = new Thread(){
                                 String result = new String();
                                 @Override
                                 public void run() {
                                     result = imService.signUpUser(usernameText.getText().toString(),
                                             passwordText.getText().toString(),
-                                            eMailText.getText().toString());
+                                            eMailText.getText().toString(),age.getText().toString(),phno.getText().toString(),radioSexButton.getText().toString());
 
                                     handler.post(new Runnable(){
 
                                         public void run() {
-                                            if (result.equals(SERVER_RES_RES_SIGN_UP_SUCCESFULL)) {
+                                            if (result != null && result.equals(SERVER_RES_RES_SIGN_UP_SUCCESFULL)) {
                                                 Toast.makeText(getApplicationContext(),R.string.signup_successfull, Toast.LENGTH_LONG).show();
                                                 //showDialog(SIGN_UP_SUCCESSFULL);
                                             }
-                                            else if (result.equals(SERVER_RES_SIGN_UP_USERNAME_CRASHED)){
+                                            else if (result != null && result.equals(SERVER_RES_SIGN_UP_USERNAME_CRASHED)){
                                                 Toast.makeText(getApplicationContext(),R.string.signup_username_crashed, Toast.LENGTH_LONG).show();
                                                 //showDialog(SIGN_UP_USERNAME_CRASHED);
                                             }

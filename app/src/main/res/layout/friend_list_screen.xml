@@ -1,14 +1,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@mipmap/whitefabric">
+    android:layout_height="fill_parent">
 
-
-   <!-- <ImageView android:id="@+id/user_img"
-        android:layout_width="35dip"
-        android:layout_height="45dip"
-        android:src="@mipmap/user"/>-->
     <ImageView android:id="@+id/icon"
         android:layout_width="48dip"
         android:layout_height="48dip" />

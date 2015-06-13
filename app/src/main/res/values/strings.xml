@@ -22,6 +22,11 @@
     <string name="exit_application">Exit</string>
     <string name="password_again">Password(again):</string>
     <string name="email">E-mail</string>
+    <string name="age">Age</string>
+    <string name="phno">Phone Number</string>
+    <string name="gen">Gender</string>
+    <string name="radio_male">Male</string>
+    <string name="radio_female">Female</string>
     <string name="signup_fill_all_fields">Please fill all fields</string>
     <string name="signup_type_same_password_in_password_fields">Type same password in password fields</string>
     <string name="signup_failed">Sign up failed because of unknown reason</string>

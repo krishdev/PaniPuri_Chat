@@ -16,7 +16,7 @@ public interface IAppManager {
     public boolean isUserAuthenticated();
     public String getLastRawFriendList();
     public void exit();
-    public String signUpUser(String usernameText, String passwordText, String email);
+    public String signUpUser(String usernameText, String passwordText, String email, String age, String phno, String gen);
     public String addNewFriendRequest(String friendUsername);
     public String sendFriendsReqsResponse(String approvedFriendNames,
                                           String discardedFriendNames);

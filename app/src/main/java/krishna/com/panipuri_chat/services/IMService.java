@@ -139,14 +139,14 @@ public class IMService extends Service implements IAppManager, IUpdateData {
     private void showNotification(String username, String msg)
     {
         // Set the icon, scrolling text and TIMESTAMP
-        String title = "AndroidIM: You got a new Message! (" + username + ")";
+        String title = "PPC: You got a new Message! (" + username + ")";
 
         String text = username + ": " +
                 ((msg.length() < 5) ? msg : msg.substring(0, 5)+ "...");
 
         //NotificationCompat.Builder notification = new NotificationCompat.Builder(R.drawable.stat_sample, title,System.currentTimeMillis());
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.stat_sample)
+                .setSmallIcon(R.mipmap.icon_panipuri)
                 .setContentTitle(title)
                 .setContentText(text);
 
@@ -337,12 +337,15 @@ public class IMService extends Service implements IAppManager, IUpdateData {
     }
 
     public String signUpUser(String usernameText, String passwordText,
-                             String emailText)
+                             String emailText, String age, String phno, String gen)
     {
         String params = "username=" + usernameText +
                 "&password=" + passwordText +
                 "&action=" + "signUpUser"+
                 "&email=" + emailText+
+                "&age=" +age+
+                "&phno=" +phno+
+                "gen=" +gen+
                 "&";
 
         String result = socketOperator.sendHttpRequest(params);

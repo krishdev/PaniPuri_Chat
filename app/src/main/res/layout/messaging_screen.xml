@@ -18,7 +18,6 @@
         android:editable="false"
         android:gravity="top"
         android:scrollbars="vertical"
-        android:scrollbarSize="10px"
         />
 
     <LinearLayout android:orientation="horizontal"
